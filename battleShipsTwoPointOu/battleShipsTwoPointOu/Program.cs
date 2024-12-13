@@ -126,8 +126,8 @@ namespace battleShipsTwoPointOu
                     Console.WriteLine("Write coordinates:");
                     userPlacement = Console.ReadLine().ToUpper();
                     Console.WriteLine("now set the orientation:");
-                    string userRotation = Console.ReadLine().ToUpper();
-                    validityCheck = IsValidInput(userPlacement, rotation, shipLenght, 10, letterToNumber);
+                    rotation = Console.ReadLine().ToUpper();
+                    validityCheck =IsValidInput(userPlacement, rotation, shipLenght, 10, letterToNumber);
                 }
               
                 
@@ -189,9 +189,55 @@ namespace battleShipsTwoPointOu
             }
             return boardPlayer;
         }
-        //public static char[,] BoardInitializationComputer(char[,] boardComputer)
-        
+       /* public static char[,] BoardInitializationComputer(char[,] boardComputer)
+        {
+            int shipCount = 5;
+            int shipLenght = 5;
+            Random rng= new Random();
+            int computerCoordinates = rng.Next(boardComputer.GetLength(0));
+            int computerSecondCoordinates = rng.Next(boardComputer.GetLength(1));
+            string [] computerOrientation = new string [3];
+            computerOrientation[0] = "R";
+            computerOrientation[1] = "L";
+            computerOrientation[2] = "U";
+            computerOrientation[3] = "O";
+
             
+            string rotation = computerOrientation[rng.Next(3)];
+            if (rotation.Length == 1)
+            {
+                if (rotation == "R")
+                {
+                    for (int j = 0; j < shipLenght; j++)
+                    {
+                        boardComputer[computerCoordinates, computerSecondCoordinates + j] = 'Q';
+
+                    }
+                }
+                else if (rotation == "L")
+                {
+                    for (int j = 0; j < shipLenght; j++)
+                    {
+                        boardComputer[computerCoordinates, computerSecondCoordinates - j] = 'Q';
+                    }
+                }
+                else if (rotation == "U")
+                {
+                    for (int j = 0; j < shipLenght; j++)
+                    {
+                        boardComputer[computerCoordinates, computerSecondCoordinates] = 'Q';
+                    }
+                }
+                else if (rotation == "O")
+                {
+                    for (int j = 0; j < shipLenght; j++)
+                    {
+                        boardComputer[computerCoordinates , computerSecondCoordinates] = 'Q';
+                    }
+                }
+            }
+        }
+        */    
         
 
         static void Main(string[] args)
