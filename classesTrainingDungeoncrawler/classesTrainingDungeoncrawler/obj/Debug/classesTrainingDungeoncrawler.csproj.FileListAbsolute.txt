@@ -1,0 +1,7 @@
+U:\podzemní jezek\seminář C#\fecinies-prg\classesTrainingDungeoncrawler\classesTrainingDungeoncrawler\bin\Debug\classesTrainingDungeoncrawler.exe.config
+U:\podzemní jezek\seminář C#\fecinies-prg\classesTrainingDungeoncrawler\classesTrainingDungeoncrawler\bin\Debug\classesTrainingDungeoncrawler.exe
+U:\podzemní jezek\seminář C#\fecinies-prg\classesTrainingDungeoncrawler\classesTrainingDungeoncrawler\bin\Debug\classesTrainingDungeoncrawler.pdb
+U:\podzemní jezek\seminář C#\fecinies-prg\classesTrainingDungeoncrawler\classesTrainingDungeoncrawler\obj\Debug\classesTrainingDungeoncrawler.csproj.AssemblyReference.cache
+U:\podzemní jezek\seminář C#\fecinies-prg\classesTrainingDungeoncrawler\classesTrainingDungeoncrawler\obj\Debug\classesTrainingDungeoncrawler.csproj.CoreCompileInputs.cache
+U:\podzemní jezek\seminář C#\fecinies-prg\classesTrainingDungeoncrawler\classesTrainingDungeoncrawler\obj\Debug\classesTrainingDungeoncrawler.exe
+U:\podzemní jezek\seminář C#\fecinies-prg\classesTrainingDungeoncrawler\classesTrainingDungeoncrawler\obj\Debug\classesTrainingDungeoncrawler.pdb
