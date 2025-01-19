@@ -42,6 +42,18 @@ namespace battleShipsTwoPointOu
             board[0,0] = '#';//not used square
             return board;
         }
+        public static char[,] BoardTyper(char[,] board)
+        {
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    Console.Write(board[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            return board;
+        }
         public static bool IsValidInput(string position, string orientation, int shipLength, int boardSize, Dictionary<char, int> letterToNumber)//chat GPT
         {
             if (string.IsNullOrEmpty(position) || position.Length != 2 || orientation.Length > 2)
@@ -59,24 +71,24 @@ namespace battleShipsTwoPointOu
                 {
                     return false;
                 }
-                else if (letterToNumber.ContainsKey(position[i]))
+                
+                if (letterToNumber.ContainsKey(position[i]))
                 {
                     firstCoordinate = letterToNumber[position[i]];
-
+                    Console.WriteLine(firstCoordinate+ "první");
                 }
                 else if (char.IsDigit(position[i]))
                 {
                     secondCoordinate = position[i] - '0';
+                    Console.WriteLine(secondCoordinate + "druhý");
                 }
 
 
             }
 
-
-
             // Check if the ship fits within the board boundaries based on orientation
 
-            if (orientation.Length > 1)
+            if (orientation.Length == 1)
             {
 
                 if (orientation == "R" && firstCoordinate + shipLength > boardSize)
@@ -91,21 +103,35 @@ namespace battleShipsTwoPointOu
                 else if (orientation == "O" && secondCoordinate + shipLength > boardSize)
                     return false;
             }
+            Console.WriteLine("ungaBunga");
             return true; // All checks passed
         }
 
-        public static char[,] BoardTyper(char[,] board)
+        public static bool IsValidComputerInput(int firstCoordinate, int secondCoordinate, string orientation, int shipLength, int boardSize, Dictionary<char, int> letterToNumber)//chat GPT
         {
-            for (int i = 0; i < board.GetLength(0); i++)
+
+            // Check if the ship fits within the board boundaries based on orientation
+
+            if (orientation.Length == 1)
             {
-                for (int j = 0; j < board.GetLength(1); j++)
-                {
-                    Console.Write(board[i, j] + " ");
-                }
-                Console.WriteLine();
+
+                if (orientation == "R" && firstCoordinate + shipLength > boardSize)
+                    return false;
+
+                else if (orientation == "L" && firstCoordinate - shipLength < 1)
+                    return false;
+
+                else if (orientation == "U" && secondCoordinate - shipLength < 1)
+                    return false;
+
+                else if (orientation == "O" && secondCoordinate + shipLength > boardSize)
+                    return false;
             }
-            return board;
+
+            Console.WriteLine("ungaBunga");
+            return true;
         }
+
 
         public static char[,] BoardInitialization(char[,] boardPlayer, Dictionary<char,int> letterToNumber) 
         {
@@ -120,33 +146,31 @@ namespace battleShipsTwoPointOu
                 string userPlacement=" ";
                 string rotation=" ";
                 bool validityCheck = false;
-                //while (userer)
+               
                 while(!validityCheck)
                 {
                     Console.WriteLine("Write coordinates:");
                     userPlacement = Console.ReadLine().ToUpper();
                     Console.WriteLine("now set the orientation:");
                     rotation = Console.ReadLine().ToUpper();
+                    for (int i = 0; i < userPlacement.Length; i++) 
+                    {
+                        char curentChar = userPlacement[i];
+
+                        if (char.IsDigit(curentChar))
+                        {
+                            firstCoordinate = curentChar - '0';
+                        }
+                        else if (letterToNumber.ContainsKey(curentChar))
+                        {
+                            secondCoordinate = letterToNumber[curentChar];
+                        }
+                    }
                     validityCheck =IsValidInput(userPlacement, rotation, shipLenght, 10, letterToNumber);
+                    if (!validityCheck)
+                        Console.WriteLine("invalid coordinates or rotation");
                 }
-              
-                
-                
-                for (int i = 0; i < userPlacement.Length; i++)
-                {
-                    char curentChar = userPlacement[i];
 
-                    if (char.IsDigit(curentChar))
-                    {
-                        firstCoordinate = curentChar -'0' ;
-                    }
-                    else if (letterToNumber.ContainsKey(curentChar))
-                    {
-                        secondCoordinate = letterToNumber[curentChar];
-                    }
-
-
-                }
                 if (rotation.Length == 1)
                 {
                     if (rotation == "R")
@@ -189,55 +213,82 @@ namespace battleShipsTwoPointOu
             }
             return boardPlayer;
         }
-       /* public static char[,] BoardInitializationComputer(char[,] boardComputer)
+        public static char[,] BoardInitializationComputer(char[,] boardComputer, Dictionary<char, int> letterToNumber)
         {
-            int shipCount = 5;
-            int shipLenght = 5;
-            Random rng= new Random();
-            int computerCoordinates = rng.Next(boardComputer.GetLength(0));
-            int computerSecondCoordinates = rng.Next(boardComputer.GetLength(1));
-            string [] computerOrientation = new string [3];
-            computerOrientation[0] = "R";
+
+            Random rng = new Random();
+
+            string[] computerOrientation = new string[4];
+            {computerOrientation[0] = "R";
             computerOrientation[1] = "L";
             computerOrientation[2] = "U";
-            computerOrientation[3] = "O";
-
+            computerOrientation[3] = "O"; }
             
-            string rotation = computerOrientation[rng.Next(3)];
-            if (rotation.Length == 1)
-            {
-                if (rotation == "R")
-                {
-                    for (int j = 0; j < shipLenght; j++)
-                    {
-                        boardComputer[computerCoordinates, computerSecondCoordinates + j] = 'Q';
 
-                    }
-                }
-                else if (rotation == "L")
+            int shipCount = 5;
+            int shipLenght = shipCount;
+
+            for (int i = 0; i < shipCount; i++)
+            {
+                int computerCoordinates = rng.Next(boardComputer.GetLength(0));
+
+                int computerSecondCoordinates = rng.Next(boardComputer.GetLength(1));
+
+                string rotation = computerOrientation[rng.Next(3)];
+
+                while (!IsValidComputerInput(computerCoordinates, computerSecondCoordinates, rotation, shipLenght, 10, letterToNumber))
                 {
-                    for (int j = 0; j < shipLenght; j++)
-                    {
-                        boardComputer[computerCoordinates, computerSecondCoordinates - j] = 'Q';
-                    }
+                    computerCoordinates = rng.Next(boardComputer.GetLength(0));
+
+                    computerSecondCoordinates = rng.Next(boardComputer.GetLength(1));
+
+                    rotation = computerOrientation[rng.Next(3)];
                 }
-                else if (rotation == "U")
+
+
+
+                if (rotation.Length == 1)
                 {
-                    for (int j = 0; j < shipLenght; j++)
+                    if (rotation == "R")
                     {
-                        boardComputer[computerCoordinates, computerSecondCoordinates] = 'Q';
+                        for (int j = 0; j < shipLenght; j++)
+                        {
+                            boardComputer[computerCoordinates, computerSecondCoordinates + j] = 'Q';
+
+                        }
+                    }
+                    else if (rotation == "L")
+                    {
+                        for (int j = 0; j < shipLenght; j++)
+                        {
+                            boardComputer[computerCoordinates, computerSecondCoordinates - j] = 'Q';
+                        }
+                    }
+                    else if (rotation == "U")
+                    {
+                        for (int j = 0; j < shipLenght; j++)
+                        {
+                            boardComputer[computerCoordinates, computerSecondCoordinates] = 'Q';
+                        }
+                    }
+                    else if (rotation == "O")
+                    {
+                        for (int j = 0; j < shipLenght; j++)
+                        {
+                            boardComputer[computerCoordinates, computerSecondCoordinates] = 'Q';
+                        }
                     }
                 }
-                else if (rotation == "O")
+                if (shipCount!= 3)
                 {
-                    for (int j = 0; j < shipLenght; j++)
-                    {
-                        boardComputer[computerCoordinates , computerSecondCoordinates] = 'Q';
-                    }
+                    shipLenght--;
                 }
+
+                shipCount--;
             }
+            return boardComputer;
         }
-        */    
+            
         
 
         static void Main(string[] args)
@@ -271,6 +322,12 @@ namespace battleShipsTwoPointOu
             BoardInitialization(boardPlayer,letterToNumber);
             Console.WriteLine("\n\nPlayers board:");
             BoardTyper(boardPlayer);
+            BoardInitializationComputer(boardComputer,letterToNumber);
+            Console.WriteLine("bazinga");
+            BoardTyper(boardComputer);
+            Console.WriteLine("computer board is initilising..."+"\n\nGet ready to play. type ur guess");
+
+           
 
         }
     }
