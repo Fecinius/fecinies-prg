@@ -1,0 +1,7 @@
+C:\Users\maty 1\Documents\fecinies-prg\forTheBooze\forTheBooze\bin\Debug\forTheBooze.exe.config
+C:\Users\maty 1\Documents\fecinies-prg\forTheBooze\forTheBooze\bin\Debug\forTheBooze.exe
+C:\Users\maty 1\Documents\fecinies-prg\forTheBooze\forTheBooze\bin\Debug\forTheBooze.pdb
+C:\Users\maty 1\Documents\fecinies-prg\forTheBooze\forTheBooze\obj\Debug\forTheBooze.csproj.AssemblyReference.cache
+C:\Users\maty 1\Documents\fecinies-prg\forTheBooze\forTheBooze\obj\Debug\forTheBooze.csproj.CoreCompileInputs.cache
+C:\Users\maty 1\Documents\fecinies-prg\forTheBooze\forTheBooze\obj\Debug\forTheBooze.exe
+C:\Users\maty 1\Documents\fecinies-prg\forTheBooze\forTheBooze\obj\Debug\forTheBooze.pdb
