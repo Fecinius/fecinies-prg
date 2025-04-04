@@ -8,3 +8,13 @@ H:\EA\Vranek\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Deb
 H:\EA\Vranek\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.csproj.CoreCompileInputs.cache
 H:\EA\Vranek\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.exe
 H:\EA\Vranek\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.pdb
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.csproj.AssemblyReference.cache
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.Form1.resources
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.Properties.Resources.resources
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.csproj.GenerateResource.cache
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.csproj.CoreCompileInputs.cache
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.exe
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\obj\Debug\painting.pdb
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\bin\Debug\painting.exe.config
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\bin\Debug\painting.exe
+U:\podzemní jezek\seminář C#\fecinies-prg\painting\painting\bin\Debug\painting.pdb
